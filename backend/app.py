@@ -25,6 +25,8 @@ def create_app():
         'http://127.0.0.1:5501',
         'http://localhost:5501',
         'null',  # file:// origin used by browsers opening HTML directly
+        # Render.com frontend URL – set FRONTEND_URL env var on Render
+        *([os.environ['FRONTEND_URL']] if os.environ.get('FRONTEND_URL') else []),
     ]
     
     # Ensure upload folder exists
